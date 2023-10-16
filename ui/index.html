@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    input[type="file"] {
+      display: block;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <form method="post" id="archive-form" enctype="multipart/form-data" action="http://localhost:8008/api/archive/files">
+    <input type="file" name="files[]" accept=".docx, .xml, .jpeg, .png" multiple>
+    <button type="submit">Create Archive</button>
+  </form>
+
+  <!-- <script>
+    const form = document.getElementById('archive-form');
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch('/api/archive/information', { // Изменили URL здесь
+          method: 'POST',
+          body: formData,
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to create archive');
+        }
+
+        const blob = await response.blob();
+        const url = URL.createObjectURL(blob);
+
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'archive.zip';
+        link.click();
+      } catch (error) {
+        console.error(error);
+        // Display error message to the user
+      }
+    });
+  </script> -->
+  <script type="module">
+    // var hugeUploader = require('./huge-uploader-master/lib/index.js')
+    import HugeUploader from './huge-uploader-master/lib/index.js';
+    console.log(hugeUploader);
+  </script>
+</body>
+</html>

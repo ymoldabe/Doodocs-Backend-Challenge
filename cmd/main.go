@@ -17,7 +17,7 @@ func main() {
 		logrus.Fatalf("error initializing configs: %s", err.Error())
 	}
 
-	service := service.New()
+	service := service.New(cnf)
 
 	handler := handler.New(service)
 

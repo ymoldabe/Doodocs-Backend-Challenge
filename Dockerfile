@@ -1,10 +1,10 @@
-FROM golang:1.20 AS build
+FROM golang:alpine AS build
 
 WORKDIR /app
 
 COPY . .
 
-RUN CGO_ENABLED=0 GOOS=linux go build -o main ./main.go
+RUN CGO_ENABLED=0 GOOS=linux go build -o main ./cmd/
 
 FROM alpine:latest
 WORKDIR /app
@@ -20,4 +20,4 @@ COPY --from=build /app .
 EXPOSE 8080
 
 # Set the entry point for the container
-CMD ["/app/main"]
+CMD ["./main"]

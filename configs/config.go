@@ -15,10 +15,7 @@ type Config struct {
 }
 
 func New() (Config, error) {
-	err := godotenv.Load("config.env")
-	if err != nil {
-		return Config{}, err
-	}
+	godotenv.Load(".env")
 
 	config := Config{
 		Port:                os.Getenv("PORT"),

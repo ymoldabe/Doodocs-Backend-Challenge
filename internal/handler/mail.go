@@ -16,6 +16,14 @@ func (h *HandlerType) file(c *gin.Context) {
 		return
 	}
 
+	err := c.Request.ParseMultipartForm(50 << 20)
+	if err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"error": err.Error(),
+		})
+		return
+	}
+
 	file, err := c.FormFile("file")
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{

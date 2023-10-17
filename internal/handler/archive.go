@@ -41,7 +41,7 @@ func (h *HandlerType) files(c *gin.Context) {
 		return
 	}
 
-	err := c.Request.ParseMultipartForm(32 << 20)
+	err := c.Request.ParseMultipartForm(50 << 20)
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
 			"error": err.Error(),

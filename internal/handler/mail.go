@@ -8,7 +8,7 @@ import (
 	"github.com/ymoldabe/Doodocs-Backend-Challenge/internal/models"
 )
 
-func (h Handler) file(c *gin.Context) {
+func (h *HandlerType) file(c *gin.Context) {
 	if c.Request.Method != http.MethodPost {
 		c.JSON(http.StatusMethodNotAllowed, gin.H{
 			"error": http.StatusText(http.StatusMethodNotAllowed),

@@ -4,7 +4,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func (h Handler) InitRouters() *gin.Engine {
+func (h *HandlerType) InitRouters() *gin.Engine {
 
 	router := gin.New()
 

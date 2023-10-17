@@ -7,7 +7,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func (h Handler) information(c *gin.Context) {
+func (h *HandlerType) information(c *gin.Context) {
 	if c.Request.Method != http.MethodPost {
 		c.JSON(http.StatusMethodNotAllowed, gin.H{
 			"error": http.StatusText(http.StatusMethodNotAllowed),
@@ -33,7 +33,7 @@ func (h Handler) information(c *gin.Context) {
 	c.JSON(http.StatusOK, zipInfo)
 }
 
-func (h Handler) files(c *gin.Context) {
+func (h *HandlerType) files(c *gin.Context) {
 	if c.Request.Method != http.MethodPost {
 		c.JSON(http.StatusMethodNotAllowed, gin.H{
 			"error": http.StatusText(http.StatusMethodNotAllowed),
